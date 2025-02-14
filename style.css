@@ -93,6 +93,23 @@ h1 {
     background-color: #A9D0F5; /* ホバー時は少し濃い青 */
 }
 
+/* ✅ 「理事長のことば」カード（青系） */
+#president-message-card {
+    background-color: #D0E7FF;
+}
+#president-message-card:hover {
+    background-color: #A9D0F5;
+}
+
+/* ✅ 「経営戦略室の戦略」カード（緑系） */
+#strategy-room-card {
+    background-color: #D3F9D8;
+}
+#strategy-room-card:hover {
+    background-color: #B2E7B6;
+}
+
+
 /* ✅ グラフエリアのレイアウト */
 .charts-grid {
     display: grid;
