@@ -6,11 +6,44 @@
     <title>戸畑共立病院ダッシュボード</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+        }
+        .dashboard-title {
+            font-size: 22px;
+            font-weight: bold;
+        }
+        .date-display {
+            font-size: 18px;
+        }
+        .top-cards {
+            display: flex;
+            gap: 10px;
+        }
+        .card {
+            padding: 10px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            min-width: 200px;
+        }
+    </style>
 </head>
 <body>
 
-    <h1>戸畑共立病院ダッシュボード</h1>
-    <div class="date-display" id="latest-date">日付: -- <span class="update-time" id="update-time">更新時刻: --:--</span></div>
+    <div class="header-container">
+        <div class="dashboard-title">戸畑共立病院ダッシュボード</div>
+        <div class="date-display" id="latest-date">日付: -- <span class="update-time" id="update-time">更新時刻: --:--</span></div>
+        <div class="top-cards">
+            <div class="card" id="president-message-card"><h3>理事長のことば</h3><strong>読み込み中...</strong></div>
+            <div class="card" id="strategy-room-card"><h3>経営戦略室の戦略</h3><strong>読み込み中...</strong></div>
+        </div>
+    </div>
 
     <div class="dashboard">
         <div class="card"><h3>病床利用率</h3><strong>--%</strong></div>
@@ -22,8 +55,6 @@
         <div class="card" id="surgery-register-card"><h3>手術台帳</h3><strong>クリックして表示</strong></div>
         <div class="card" id="duty-management-card"><h3>当直管理表</h3><strong>クリックして表示</strong></div>
         <div class="card" id="covid-status-card"><h3>新型コロナ感染状況</h3><strong>クリックして表示</strong></div>
-        <div class="card" id="president-message-card"><h3>理事長のことば</h3><strong>読み込み中...</strong></div>
-        <div class="card" id="strategy-room-card"><h3>経営戦略室の戦略</h3><strong>読み込み中...</strong></div>
     </div>
 
     <div class="charts-grid">
@@ -46,7 +77,7 @@
         });
 
         document.getElementById('covid-status-card').addEventListener('click', function() {
-            window.open('https://docs.google.com/spreadsheets/d/1pgLCwJPxPpGO_-ro_J78QYqLzjrGHgTBKHL3ngybBbY/edit?gid=0#gid=0'); // ここに「新型コロナ感染状況」のスプレッドシートURLを入力
+            window.open('https://docs.google.com/spreadsheets/d/1pgLCwJPxPpGO_-ro_J78QYqLzjrGHgTBKHL3ngybBbY/edit?gid=0#gid=0');
         });
 
         // グラフの再表示
