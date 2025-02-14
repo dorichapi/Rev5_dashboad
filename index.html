@@ -40,9 +40,15 @@
             min-width: 200px;
         }
         /* ✅ スプレッドシートのデータ表示のフォントサイズを小さく、左寄せに変更 */
+        #president-message-card h3,
+        #strategy-room-card h3,
         #president-message-card strong,
         #strategy-room-card strong {
-            font-size: 14px;
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            width: 90%;
+            font-size: 20px;
             text-align: left;
             display: block;
         }
@@ -67,8 +73,8 @@
 更新時刻：00:00</div>
         </div>
         <div class="top-cards">
-            <div class="card" id="president-message-card"><h3>理事長のことば</h3><strong>読み込み中...</strong></div>
-            <div class="card" id="strategy-room-card"><h3>経営戦略室の戦略</h3><strong>読み込み中...</strong></div>
+            <div class="card" id="president-message-card"><h3>『理事長のことば』</h3><strong>読み込み中...</strong></div>
+            <div class="card" id="strategy-room-card"><h3>『経営戦略室の戦略』</h3><strong>読み込み中...</strong></div>
         </div>
     </div>
 
