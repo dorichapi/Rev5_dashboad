@@ -12,17 +12,18 @@
             align-items: center;
             justify-content: space-between;
             padding: 10px;
+        }
+        .title-container {
+            display: flex;
             flex-direction: column;
+            text-align: left;
         }
         .dashboard-title {
             font-size: 28px;
             font-weight: bold;
-            text-align: center;
         }
         .date-container {
-            text-align: center;
             font-size: 18px;
-            margin-top: 5px;
         }
         .top-cards {
             display: flex;
@@ -41,8 +42,10 @@
 <body>
 
     <div class="header-container">
-        <div class="dashboard-title">戸畑共立病院ダッシュボード</div>
-        <div class="date-container" id="latest-date">2025年2月14日(金) 更新時刻：00:00</div>
+        <div class="title-container">
+            <div class="dashboard-title">戸畑共立病院ダッシュボード</div>
+            <div class="date-container" id="latest-date">2025年2月14日(金) 更新時刻：00:00</div>
+        </div>
         <div class="top-cards">
             <div class="card" id="president-message-card"><h3>理事長のことば</h3><strong>読み込み中...</strong></div>
             <div class="card" id="strategy-room-card"><h3>経営戦略室の戦略</h3><strong>読み込み中...</strong></div>
