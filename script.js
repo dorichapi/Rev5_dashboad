@@ -3,8 +3,7 @@ const apiUrl = "https://script.google.com/macros/s/AKfycbzFNOekouxWlJ3g_q6Fg3ZXT
 
 // ✅ Google Apps Script のURLをここに設定
 const presidentMessageUrl = "https://docs.google.com/spreadsheets/d/1Ka4nZ1hoKhPIbZf8IdAuErfhEfGMnyi6EzEYMalJNkM/gviz/tq?tq=SELECT%20A&gid=0";
-const strategyRoomUrl = "https://docs.google.com/spreadsheets/d/1ONAQXCxwSMUjyoUAZ6Gg5JNu_jEGPu92l7L01RSSyko/edit?gid=0#gid=0";
-
+const strategyRoomUrl = "https://docs.google.com/spreadsheets/d/1ONAQXCxwSMUjyoUAZ6Gg5JNu_jEGPu92l7L01RSSyko/gviz/tq?tq=SELECT%20A&gid=0";
 // ✅ スプレッドシートのデータを取得
 async function fetchSheetData(url, elementId) {
     try {
