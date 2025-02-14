@@ -41,9 +41,19 @@
         }
         /* ✅ スプレッドシートのデータ表示のフォントサイズを小さく、左寄せに変更 */
         #president-message-card h3,
-        #strategy-room-card h3,
+        #strategy-room-card h3 {
+            position: relative;
+            font-size: 23px;
+            text-align: center;
+            margin-bottom: 10px;
+            display: block;
+        }
         #president-message-card strong,
         #strategy-room-card strong {
+            font-size: 14px;
+            text-align: left;
+            display: block;
+        }
             position: absolute;
             bottom: 10px;
             left: 10px;
@@ -62,6 +72,29 @@
             min-width: 320px;
             padding: 20px;
         }
+
+      /* ✅ カード内タイトルを最上段に固定 */
+#president-message-card h3,
+#strategy-room-card h3 {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 23px;
+    text-align: center;
+    width: 100%;
+    margin: 0;
+}
+
+/* ✅ カードの内容（スプレッドシートデータ）がタイトルと重ならないようにする */
+#president-message-card strong,
+#strategy-room-card strong {
+    font-size: 14px;
+    text-align: left;
+    display: block;
+    margin-top: 40px;
+}
+
     </style>
 </head>
 <body>
