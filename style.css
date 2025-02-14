@@ -1,154 +1,154 @@
-/* ✅ 全体の基本スタイル */
-body {
-    font-family: Arial, sans-serif;
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>戸畑共立病院ダッシュボード</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+        }
+        .title-container {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            white-space: pre-line;
+        }
+        .dashboard-title {
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .date-container {
+            font-size: 18px;
+            white-space: pre-line;
+        }
+        .top-cards {
+            display: flex;
+            gap: 10px;
+        }
+        .card {
+            padding: 10px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            min-width: 200px;
+        }
+        /* ✅ スプレッドシートのデータ表示のフォントサイズを小さく、左寄せに変更 */
+        #president-message-card h3,
+        #strategy-room-card h3 {
+            font-size: 23px;
+            text-align: center;
+            margin-bottom: 10px;
+            display: block;
+        }
+        #president-message-card strong,
+        #strategy-room-card strong {
+            font-size: 14px;
+            text-align: left;
+            display: block;
+            margin-top: 10px;
+        }
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            width: 90%;
+            font-size: 20px;
+            text-align: left;
+            display: block;
+        }
+        /* ✅ カードタイトルのフォントサイズを23に変更 */
+        #president-message-card h3,
+        #strategy-room-card h3 {
+            font-size: 23px;
+        }
+        /* ✅ 経営戦略室の戦略カードを理事長のことばカードより少し大きく */
+        #strategy-room-card {
+            min-width: 320px;
+            padding: 20px;
+        }
+
+      /* ✅ カード内タイトルを最上段に固定 */
+#president-message-card h3,
+#strategy-room-card h3 {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 23px;
     text-align: center;
-    margin: 20px;
-    background-color: #f9f9f9;
+    width: 100%;
+    margin: 0;
 }
 
-h1 {
-    color: #333;
-    margin-bottom: 10px;
-    font-size: 36px; /* ✅ タイトルのフォントサイズを大きく */
-    font-weight: bold;
+/* ✅ カードの内容（スプレッドシートデータ）がタイトルと重ならないようにする */
+#president-message-card strong,
+#strategy-room-card strong {
+    font-size: 14px;
+    text-align: left;
+    display: block;
+    margin-top: 40px;
 }
 
-.date-display {
-    font-size: 28px;
-    margin: 10px 0;
-    font-weight: bold;
-}
+    </style>
+</head>
+<body>
 
-.update-time {
-    font-size: 24px;
-    color: #666;
-    margin-left: 10px;
-    font-weight: bold;
-}
+    <div class="header-container">
+        <div class="title-container">
+            <div class="dashboard-title">戸畑共立病院ダッシュボード</div>
+            <div class="date-container" id="latest-date">2025年2月14日(金)
+更新時刻：00:00</div>
+        </div>
+        <div class="top-cards">
+            <div class="card" id="president-message-card"><h3>『理事長のことば』</h3><strong>読み込み中...</strong></div>
+            <div class="card" id="strategy-room-card"><h3>『経営戦略室の戦略』</h3><strong>読み込み中...</strong></div>
+        </div>
+    </div>
 
-/* ✅ ダッシュボードカードレイアウト */
-.dashboard {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin: 20px;
-}
+    <div class="dashboard">
+        <div class="card"><h3>病床利用率</h3><strong>--%</strong></div>
+        <div class="card"><h3>救急車搬入</h3><strong>--台</strong></div>
+        <div class="card"><h3>入院患者</h3><strong>--人</strong></div>
+        <div class="card"><h3>退院予定</h3><strong>--人</strong></div>
+        <div class="card"><h3>一般病棟在院数</h3><strong>--/218 床</strong></div>
+        <div class="card"><h3>集中治療室在院数</h3><strong>--/16 床</strong></div>
+        <div class="card" id="surgery-register-card"><h3>手術台帳</h3><strong>クリックして表示</strong></div>
+        <div class="card" id="duty-management-card"><h3>当直管理表</h3><strong>クリックして表示</strong></div>
+        <div class="card" id="covid-status-card"><h3>新型コロナ感染状況</h3><strong>クリックして表示</strong></div>
+    </div>
 
-.card {
-    background: white;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    min-height: 120px;
-    text-align: center;
-    font-size: 24px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    transition: background-color 0.3s ease-in-out; /* ✅ 色変化のアニメーション */
-}
+    <div class="charts-grid">
+        <canvas id="bedChart"></canvas>
+        <canvas id="ambulanceChart"></canvas>
+        <canvas id="inpatientsChart"></canvas>
+        <canvas id="dischargesChart"></canvas>
+        <canvas id="generalWardChart"></canvas>
+        <canvas id="icuChart"></canvas>
+    </div>
 
-.card h3 {
-    margin: 5px 0;
-    color: #444;
-    font-size: 28px;
-    font-weight: bold;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
+    <script src="script.js"></script>
+    <script>
+        document.getElementById('surgery-register-card').addEventListener('click', function() {
+            window.open('https://docs.google.com/spreadsheets/d/1CHU8Cgxgg5IvL3nB6ackAdqxe7-CNkmWDvtYE-keuXI/edit', '_blank');
+        });
 
-.card strong {
-    font-size: 32px;
-    color: #000;
-    font-weight: bold;
-}
+        document.getElementById('duty-management-card').addEventListener('click', function() {
+            window.open('https://docs.google.com/spreadsheets/d/1EX0t4wpSJZkEkhZ38PUGIyZVMOeGOTNdy2OI3rb_CTc/edit', '_blank');
+        });
 
-/* ✅ 手術台帳カード（薄いピンク） */
-#surgery-register-card {
-    background-color: #FFD1DC; /* 薄いピンク */
-}
+        document.getElementById('covid-status-card').addEventListener('click', function() {
+            window.open('https://docs.google.com/spreadsheets/d/1pgLCwJPxPpGO_-ro_J78QYqLzjrGHgTBKHL3ngybBbY/edit?gid=0#gid=0');
+        });
 
-#surgery-register-card:hover {
-    background-color: #FFB6C1; /* ホバー時は少し濃いピンク */
-}
+        // グラフの再表示
+        fetchData();
+    </script>
 
-/* ✅ 当直管理表カード（薄い緑） */
-#duty-management-card {
-    background-color: #D3F9D8; /* 薄い緑 */
-}
-
-#duty-management-card:hover {
-    background-color: #B2E7B6; /* ホバー時は少し濃い緑 */
-}
-
-/* ✅ 新型コロナ感染状況カード（薄い青） */
-#covid-status-card {
-    background-color: #D0E7FF; /* 薄い青 */
-}
-
-#covid-status-card:hover {
-    background-color: #A9D0F5; /* ホバー時は少し濃い青 */
-}
-
-/* ✅ 「理事長のことば」カード（青系） */
-#president-message-card {
-    background-color: #D0E7FF;
-}
-#president-message-card:hover {
-    background-color: #A9D0F5;
-}
-
-/* ✅ 「経営戦略室の戦略」カード（緑系） */
-#strategy-room-card {
-    background-color: #D3F9D8;
-}
-#strategy-room-card:hover {
-    background-color: #B2E7B6;
-}
-
-
-/* ✅ グラフエリアのレイアウト */
-.charts-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    padding: 10px;
-    max-width: 100%;
-    margin: 0 auto;
-}
-
-/* ✅ グラフのスタイル調整 */
-canvas {
-    background: white;
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
-    height: 350px !important;
-    width: 100% !important;
-    box-sizing: border-box;
-    margin: 0 auto;
-    font-size: 24px !important;
-}
-
-/* ✅ レスポンシブ対応（タブレット） */
-@media (max-width: 1024px) {
-    .charts-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    canvas {
-        height: 300px !important;
-    }
-}
-
-/* ✅ レスポンシブ対応（スマホ） */
-@media (max-width: 768px) {
-    .charts-grid {
-        grid-template-columns: 1fr;
-    }
-    canvas {
-        height: 250px !important;
-    }
-}
+</body>
+</html>
