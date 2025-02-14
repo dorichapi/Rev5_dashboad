@@ -1,36 +1,6 @@
 // ✅ Google Apps ScriptのURLをここに貼り付け
 const apiUrl = "https://script.google.com/macros/s/AKfycbzFNOekouxWlJ3g_q6Fg3ZXTX8udctKQSBKAwkupswvDaT5GJAF2dc2t1mDMdT2jA9q/exec";
 
-// ✅ Google Apps Script のURLをここに設定
-const presidentMessageUrl = "https://docs.google.com/spreadsheets/d/1Ka4nZ1hoKhPIbZf8IdAuErfhEfGMnyi6EzEYMalJNkM/gviz/tq?tq=SELECT%20A&gid=0";
-const strategyRoomUrl = "https://docs.google.com/spreadsheets/d/1ONAQXCxwSMUjyoUAZ6Gg5JNu_jEGPu92l7L01RSSyko/gviz/tq?tq=SELECT%20A&gid=0";
-// ✅ スプレッドシートのデータを取得
-async function fetchSheetData(url, elementId) {
-    try {
-        const response = await fetch(url);
-        const text = await response.text();
-        const jsonData = JSON.parse(text.match(/(?<=\()\{.*\}(?=\))/)[0]);
-        const cellValue = jsonData.table.rows[0].c[0].v;
-        document.getElementById(elementId).querySelector("strong").innerText = cellValue;
-    } catch (error) {
-        console.error("❌ スプレッドシートデータ取得エラー:", error);
-        document.getElementById(elementId).querySelector("strong").innerText = "読み込み失敗";
-    }
-}
-
-// ✅ 各カードにデータを適用
-fetchSheetData(presidentMessageUrl, "president-message-card");
-fetchSheetData(strategyRoomUrl, "strategy-room-card");
-
-// ✅ クリックイベントでスプレッドシートを開く
-document.getElementById("president-message-card").addEventListener("click", function() {
-    window.open("https://docs.google.com/spreadsheets/d/1Ka4nZ1hoKhPIbZf8IdAuErfhEfGMnyi6EzEYMalJNkM/edit?gid=0", "_blank");
-});
-
-document.getElementById("strategy-room-card").addEventListener("click", function() {
-    window.open("https://docs.google.com/spreadsheets/d/1ONAQXCxwSMUjyoUAZ6Gg5JNu_jEGPu92l7L01RSSyko/edit?gid=0#gid=0", "_blank");
-});
-
 // ✅ データ取得 & グラフ表示
 async function fetchData() {
     try {
@@ -45,7 +15,7 @@ async function fetchData() {
         const formattedDate = latestData["日付"] ? formatDate(latestData["日付"]) : "日付不明";
         const formattedTime = result.lastEditTime ? formatTime(result.lastEditTime) : "--:--";
 
-        dateElement.innerHTML = `${formattedDate}<br><span class="update-time">更新時刻：${formattedTime}</span>`;
+        dateElement.innerHTML = `${formattedDate} <span class="update-time">更新時刻：${formattedTime}</span>`;
         dateElement.style.fontSize = "32px"; // ✅ フォントサイズを大きく
 
         // ✅ データの表示
