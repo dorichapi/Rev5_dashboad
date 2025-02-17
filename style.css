@@ -133,13 +133,53 @@ canvas {
         height: 300px !important;
     }
 }
+/* ✅ ヘッダー全体を横並びにする */
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+/* ✅ 左側（ダッシュボードタイトル＆日付）を調整 */
+.header-left {
+    text-align: left;
+    flex: 1;
+}
+
+/* ✅ 右側の大きめカードコンテナ */
+.header-right {
+    display: flex;
+    gap: 15px;
+}
+
+/* ✅ 大きめのカード */
+.large-card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
+    width: 250px; /* カードの幅を大きめに */
+    height: 150px; /* カードの高さを調整 */
+    text-align: center;
+    font-size: 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 
 /* ✅ レスポンシブ対応（スマホ） */
 @media (max-width: 768px) {
-    .charts-grid {
-        grid-template-columns: 1fr;
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start;
     }
-    canvas {
-        height: 250px !important;
+    .header-right {
+        flex-direction: column;
+        width: 100%;
+    }
+    .large-card {
+        width: 100%;
     }
 }
