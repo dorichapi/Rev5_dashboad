@@ -173,13 +173,13 @@ canvas {
 
 /* ✅ 特定のカードのサイズを個別に設定可能 */
 #spreadsheet-card-1 {
-    --card-width: 300px;
+    --card-width: 400px;
     --card-height: 180px;
 }
 
 #spreadsheet-card-2 {
-    --card-width: 380px;
-    --card-height: 200px;
+    --card-width: 450px;
+    --card-height: 180px;
 }
 
 /* ✅ レスポンシブ対応（スマホでは縦並び） */
