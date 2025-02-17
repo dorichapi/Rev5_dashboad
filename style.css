@@ -173,12 +173,12 @@ canvas {
 
 /* ✅ 特定のカードのサイズを個別に設定可能 */
 #spreadsheet-card-1 {
-    --card-width: 400px;
+    --card-width: 500px;
     --card-height: 180px;
 }
 
 #spreadsheet-card-2 {
-    --card-width: 450px;
+    --card-width: 600px;
     --card-height: 180px;
 }
 
