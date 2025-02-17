@@ -17,6 +17,8 @@ h1 {
     font-size: 28px;
     margin: 10px 0;
     font-weight: bold;
+    text-align: left; /* 左寄せ */
+    padding-left: 20px; /* 余白を調整 */
 }
 
 .update-time {
