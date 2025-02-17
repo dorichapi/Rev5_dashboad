@@ -1,19 +1,21 @@
 // ✅ Google Apps ScriptのURLをここに貼り付け
 const apiUrl = "https://script.google.com/macros/s/AKfycbzFNOekouxWlJ3g_q6Fg3ZXTX8udctKQSBKAwkupswvDaT5GJAF2dc2t1mDMdT2jA9q/exec";
 
-// ✅ Google Apps ScriptのURL（スプレッドシート1のデータ取得用）
-const apiUrl1 = "https://script.google.com/macros/s/AKfycbyHjaYy9fe53yVhRs8ZIgFkIvU_CnK4jxvedThJdUnUqnjlnjB_ibQTWHsoeIt7MBwijQ/exec";
-const apiUrl2 = "https://script.google.com/macros/s/AKfycbwBNbVT7l_fQIplHVwyY8KaMUkbqmUGag2WHww9BMWiZBtWk12ZHAESxYkvzulopU2x/exec";
-
 // ✅ データ取得 & グラフ表示
 async function fetchData() {
     try {
-        const response = await fetch(apiUrl);
+         const response = await fetch(apiUrl);
         const result = await response.json();
-        const latestData = result.data[result.data.length - 1];
+        console.log("取得データ:", result); // ✅ デバッグ用
 
+        // ✅ データチェック
+        if (!result["セルA1"] || !result["セルB1"] || !result.data) {
+            throw new Error("スプレッドシートのデータが取得できません。");
+        }
+    
         // ✅ 日付とスプレッドシートの更新時刻を表示
         const dateElement = document.getElementById("latest-date");
+        const latestData = result.data[result.data.length - 1];
 
         // ✅ 日付が存在しない場合のフォールバック処理
         const formattedDate = latestData["日付"] ? formatDate(latestData["日付"]) : "日付不明";
@@ -24,9 +26,10 @@ async function fetchData() {
         dateElement.style.paddingLeft = "20px";
         dateElement.style.fontSize = "32px"; // ✅ フォントサイズを大きく
 
-        // ✅ データの表示
-        document.querySelectorAll(".dashboard .card").forEach(card => {
-            card.style.fontSize = "28px";
+       // ✅ ダッシュボードの既存カードにデータを表示
+        document.getElementById("dashboard-card-1").querySelector("strong").innerText = result["セルA1"]; // 「水曜会」
+        document.getElementById("dashboard-card-2").querySelector("strong").innerText = result["セルB1"]; // 「経営戦略室の戦略」
+
         });
 
          // ✅ 追加した2つのカードにスプレッドシートの「第1タブのセルA1」のデータを表示
