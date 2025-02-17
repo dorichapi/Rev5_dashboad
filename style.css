@@ -171,6 +171,13 @@ canvas {
     justify-content: center;
 }
 
+/* ✅ カード内のテキストのフォントサイズを大きめに */
+.large-card strong {
+    font-size: 32px;
+    font-weight: bold;
+    color: #333;
+}
+
 /* ✅ 特定のカードのサイズを個別に設定可能 */
 #spreadsheet-card-1 {
     --card-width: 500px;
