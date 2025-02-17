@@ -16,6 +16,8 @@ async function fetchData() {
         const formattedTime = result.lastEditTime ? formatTime(result.lastEditTime) : "--:--";
 
         dateElement.innerHTML = `${formattedDate} <span class="update-time">更新時刻：${formattedTime}</span>`;
+        dateElement.style.textAlign = "left";
+        dateElement.style.paddingLeft = "20px";
         dateElement.style.fontSize = "32px"; // ✅ フォントサイズを大きく
 
         // ✅ データの表示
