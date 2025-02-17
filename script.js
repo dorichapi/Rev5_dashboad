@@ -25,10 +25,9 @@ async function fetchData() {
             card.style.fontSize = "28px";
         });
 
-          // ✅ 追加した2つのカードにスプレッドシートのデータを表示
-        document.getElementById("spreadsheet-card-1").querySelector("strong").innerText = latestData["重要指標①"];
-        document.getElementById("spreadsheet-card-2").querySelector("strong").innerText = latestData["重要指標②"];
-
+         // ✅ 追加した2つのカードにスプレッドシートの「第1タブのセルA1」のデータを表示
+        document.getElementById("spreadsheet-card-1").querySelector("strong").innerText = latestData["セルA1"];
+        document.getElementById("spreadsheet-card-2").querySelector("strong").innerText = latestData["セルA1"];
 
         document.querySelector(".dashboard .card:nth-child(1) strong").innerText = `${(latestData["病床利用率 (%)"] * 100).toFixed(1)}%`;
         document.querySelector(".dashboard .card:nth-child(2) strong").innerText = `${latestData["救急車搬入数"]}台`;
