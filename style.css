@@ -141,13 +141,13 @@ canvas {
     padding: 20px;
 }
 
-/* ✅ 左側（ダッシュボードタイトル＆日付）を調整 */
+/* ✅ 左側（ダッシュボードタイトル＆日付） */
 .header-left {
     text-align: left;
     flex: 1;
 }
 
-/* ✅ 右側の大きめカードコンテナ */
+/* ✅ 右側のカード（2枚を横並びに） */
 .header-right {
     display: flex;
     gap: 15px;
@@ -159,8 +159,8 @@ canvas {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
-    width: 250px; /* カードの幅を大きめに */
-    height: 150px; /* カードの高さを調整 */
+    width: 250px; /* 幅を大きめに */
+    height: 150px; /* 高さを調整 */
     text-align: center;
     font-size: 28px;
     display: flex;
@@ -168,8 +168,7 @@ canvas {
     justify-content: center;
 }
 
-
-/* ✅ レスポンシブ対応（スマホ） */
+/* ✅ レスポンシブ対応（スマホでは縦並び） */
 @media (max-width: 768px) {
     .header-container {
         flex-direction: column;
