@@ -21,6 +21,12 @@ h1 {
     padding-left: 20px; /* 余白を調整 */
 }
 
+h1.left-align {
+    text-align: left;
+    padding-left: 20px;
+}
+
+
 .update-time {
     font-size: 24px;
     color: #666;
