@@ -141,39 +141,46 @@ canvas {
     }
     canvas {
         height: 250px !important;
+        
 /* ✅ ヘッダー全体を横並びにする */
 .header-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 20px;
-}
-
-/* ✅ 左側（ダッシュボードタイトル＆日付） */
-.header-left {
-    text-align: left;
-    flex: 1;
+    flex-wrap: wrap;
 }
 
 /* ✅ 右側のカード（2枚を横並びに） */
 .header-right {
     display: flex;
     gap: 15px;
+    flex-wrap: wrap;
 }
 
-/* ✅ 大きめのカード */
+/* ✅ 大きめのカード（サイズを調整して確実に表示） */
 .large-card {
     background: white;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
-    width: 250px; /* 幅を大きめに */
-    height: 150px; /* 高さを調整 */
+    width: 250px;  /* 幅を確保 */
+    min-height: 150px; /* ✅ 高さを一定にする */
     text-align: center;
     font-size: 28px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    flex: 1;
+}
+
+/* ✅ ダッシュボード全体のレイアウト */
+.dashboard {
+    display: flex;
+    justify-content: space-between; /* ✅ 余白調整 */
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 20px;
 }
 
 /* ✅ レスポンシブ対応（スマホでは縦並び） */
@@ -188,5 +195,8 @@ canvas {
     }
     .large-card {
         width: 100%;
+    }
+}
+
     }
 }
