@@ -17,8 +17,6 @@ h1 {
     font-size: 28px;
     margin: 10px 0;
     font-weight: bold;
-    text-align: left; /* 左寄せ */
-    padding-left: 20px; /* 余白を調整 */
 }
 
 .update-time {
@@ -27,12 +25,6 @@ h1 {
     margin-left: 10px;
     font-weight: bold;
 }
-
-h1.left-align {
-    text-align: left;
-    padding-left: 20px;
-}
-
 
 /* ✅ ダッシュボードカードレイアウト */
 .dashboard {
@@ -133,73 +125,13 @@ canvas {
         height: 300px !important;
     }
 }
-/* ✅ ヘッダー全体を横並びにする */
-.header-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px;
-}
 
-/* ✅ 左側（ダッシュボードタイトル＆日付） */
-.header-left {
-    text-align: left;
-    flex: 1;
-}
-
-/* ✅ 右側のカード（2枚を横並びに） */
-.header-right {
-    display: flex;
-    gap: 15px;
-}
-
-/* ✅ 大きめのカード（サイズを自由に変更できるように） */
-.large-card {
-    --card-width: 250px;  /* ✅ 好きな幅に変更 */
-    --card-height: 150px; /* ✅ 好きな高さに変更 */
-
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
-    width: var(--card-width);  /* 幅を変えたい場合はCSS変数を変更 */
-    height: var(--card-height); /* 高さを変えたい場合はCSS変数を変更 */
-    text-align: center;
-    font-size: 28px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-/* ✅ カード内のテキストのフォントサイズを大きめに */
-.large-card strong {
-    font-size: 32px;
-    font-weight: bold;
-    color: #333;
-}
-
-/* ✅ 特定のカードのサイズを個別に設定可能 */
-#spreadsheet-card-1 {
-    --card-width: 500px;
-    --card-height: 180px;
-}
-
-#spreadsheet-card-2 {
-    --card-width: 600px;
-    --card-height: 180px;
-}
-
-/* ✅ レスポンシブ対応（スマホでは縦並び） */
+/* ✅ レスポンシブ対応（スマホ） */
 @media (max-width: 768px) {
-    .header-container {
-        flex-direction: column;
-        align-items: flex-start;
+    .charts-grid {
+        grid-template-columns: 1fr;
     }
-    .header-right {
-        flex-direction: column;
-        width: 100%;
-    }
-    .large-card {
-        width: 100%;
+    canvas {
+        height: 250px !important;
     }
 }
