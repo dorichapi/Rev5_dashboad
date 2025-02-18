@@ -18,6 +18,10 @@ async function fetchData() {
         dateElement.innerHTML = `${formattedDate} <span class="update-time">更新時刻：${formattedTime}</span>`;
         dateElement.style.fontSize = "32px"; // ✅ フォントサイズを大きく
 
+        // ✅ 追加した2つのカードにスプレッドシートのデータを表示
+        document.getElementById("spreadsheet-card-1").querySelector("strong").innerText = latestData["重要指標①"];
+        document.getElementById("spreadsheet-card-2").querySelector("strong").innerText = latestData["重要指標②"];
+
         // ✅ データの表示
         document.querySelectorAll(".dashboard .card").forEach(card => {
             card.style.fontSize = "28px";
